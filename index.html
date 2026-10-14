@@ -1,50 +1,152 @@
 <!doctype html>
 <html lang="es">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Petludos | Productos para tu mascota</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="topbar">
-      <a class="logo" href="index.html" aria-label="Petludos, inicio"><img
-          src="https://www.figma.com/api/mcp/asset/852e49f5-66b5-4ba2-bc1d-1d17df84c610/9a43b.png" alt="Petludos"></a>
-      <label class="search"><span aria-hidden="true">⌕</span><input id="search" placeholder="¿Qué compramos hoy?"
-          aria-label="Buscar productos"></label>
-      <button class="pet" id="pet"><span aria-hidden="true">🐕</span> Apolo <span class="down">▾</span></button>
-      <button class="header-icon" aria-label="Carrito">🛒</button>
-      <button class="header-icon user-icon" aria-label="Mi cuenta">♙</button>
-    </div>
-    <nav class="main-nav" aria-label="Navegación principal">
-      <a class="nav-primary" href="?view=categorias">Para mi mascota <span>▾</span></a>
-      <a href="?view=categorias">Productos <span>▾</span></a>
-      <a href="#promociones">Promociones <span>▾</span></a>
-      <a href="#footer">Nosotros <span>▾</span></a>
-    </nav>
-  </header>
-  <main id="app"></main>
-  <footer id="footer" class="site-footer">
-    <div class="footgrid">
-      <div class="footer-brand"><a class="logo" href="index.html"><img
-            src="https://www.figma.com/api/mcp/asset/852e49f5-66b5-4ba2-bc1d-1d17df84c610/9a43b.png" alt="Petludos"></a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Petludos | Todo para su bienestar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="topbar wrap">
+        <a class="brand-logo" href="index.html" aria-label="Petludos, inicio"
+          ><img
+            src="https://www.figma.com/api/mcp/asset/51223e1e-db7e-4c58-8cb5-b305f3db0bcf/9a43b.png"
+            alt="Petludos"
+        /></a>
+        <form class="searchbar" id="searchForm">
+          <span class="search-icon" aria-hidden="true"></span
+          ><input
+            id="searchInput"
+            type="search"
+            placeholder="¿Qué compramos hoy?"
+            aria-label="Buscar productos"
+          />
+        </form>
+        <button class="pet-profile" id="profileButton">
+          <svg class="pet-profile-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 13c-1-3 0-7 3-8 2-1 4 0 5 2 1-2 3-3 5-2 3 1 4 5 3 8l-2 4c-1 2-3 2-4 0l-2-2-2 2c-1 2-3 2-4 0z"
+              fill="currentColor"
+            />
+            <circle cx="8" cy="10" r="1" fill="#2E933C" />
+            <circle cx="16" cy="10" r="1" fill="#2E933C" /></svg
+          ><span>Apolo</span><span class="caret">⌄</span>
+        </button>
+        <button
+          class="icon-button cart-head"
+          id="cartButton"
+          aria-label="Abrir carrito"
+        >
+          <svg class="cart-icon" viewBox="0 0 28 28" aria-hidden="true">
+            <path
+              d="M2 4h3l3 15h14l4-11H7M10 23a1.7 1.7 0 1 0 0 .1M21 23a1.7 1.7 0 1 0 0 .1"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            /></svg
+          ><i id="cartCount">0</i>
+        </button>
+        <button
+          class="icon-button account-head"
+          id="profileButton2"
+          aria-label="Perfil"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle
+              cx="12"
+              cy="7"
+              r="4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="M4 21c.4-4.3 3.2-7 8-7s7.6 2.7 8 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
       </div>
-      <div><b>Servicio al cliente</b><a href="#">Términos y condiciones</a><a href="#">Política de privacidad</a></div>
-      <div><b>Guía de compra</b><a href="#">Información de envío</a><a href="#">Preguntas frecuentes</a><a
-          href="#">Crear perfil de mascota</a></div>
-      <div><b>Contacto</b><a href="#">999 999 999</a><a href="#">correo@correo.pe</a>
-        <div class="socials">◎　f　in</div>
+      <nav class="mainnav">
+        <div class="wrap nav-inner">
+          <a class="nav-pet" href="?view=categorias" data-view="categorias"
+            >Para mi mascota <span>⌄</span></a
+          >
+          <a href="?view=productos" data-view="productos"
+            >Productos <span>⌄</span></a
+          >
+          <a href="?view=promociones" data-view="promociones"
+            >Promociones <span>⌄</span></a
+          >
+          <a href="?view=nosotros" data-view="nosotros"
+            >Nosotros <span>⌄</span></a
+          >
+        </div>
+      </nav>
+    </header>
+    <main id="app" tabindex="-1"></main>
+    <footer class="footer" id="footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <img
+            src="https://www.figma.com/api/mcp/asset/51223e1e-db7e-4c58-8cb5-b305f3db0bcf/9a43b.png"
+            alt="Petludos"
+          />
+          <p>Todo lo que necesita tu compañero, en un solo lugar.</p>
+        </div>
+        <div class="footer-customer">
+          <b>Servicio al cliente</b><a href="#">Términos y condiciones</a
+          ><a href="#">Política de privacidad</a
+          ><a
+            class="complaints-book"
+            href="#"
+            aria-label="Libro de reclamaciones"
+            ><img
+            src="https://www.figma.com/api/mcp/asset/846acb7a-0bc3-4c09-b860-b48d0b2b67a0/d6d5b.png"
+            alt="Libro de reclamaciones"
+            style="width: 60px; height: auto; max-width: 60px; display: block;"
+          /></a>
+        </div>
+        <div>
+          <b>Guía de compra</b><a href="#">Información de envío</a
+          ><a href="#">Preguntas frecuentes</a
+          ><a href="#" id="footerProfile">Crear perfil de mascota</a>
+        </div>
+        <div>
+          <b>Contacto</b><a href="tel:999999999">999 999 999</a
+          ><a href="mailto:correo@correo.pe">correo@correo.pe</a>
+          <div class="socials">◎　f　in</div>
+        </div>
       </div>
+      <div class="wrap copyright">
+        Petludos S.A.C. | Tienda para mascotas | Todos los derechos reservados
+      </div>
+    </footer>
+    <div class="modal-backdrop" id="modalBackdrop" hidden>
+      <section
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">
+          ×
+        </button>
+        <div id="modalContent"></div>
+      </section>
     </div>
-    <div class="copyright">Petludos S.A.C. | Tienda para mascotas | Todos los derechos reservados</div>
-  </footer>
-  <script src="main.js"></script>
-</body>
-
+    <script src="main.js"></script>
+  </body>
 </html>
