@@ -1,16 +1,71 @@
+// Imágenes locales alojadas en el repositorio de Petludos (carpeta assets).
 const ASSETS = {
-  home: "https://www.figma.com/api/mcp/asset/51223e1e-db7e-4c58-8cb5-b305f3db0bcf",
-  food: "https://www.figma.com/api/mcp/asset/308ac88f-2b79-47c1-991b-12551822c7fd",
-  snacks:
-    "https://www.figma.com/api/mcp/asset/ba6a4c05-315e-4613-8158-4b4a6dd4e57c",
-  hygiene:
-    "https://www.figma.com/api/mcp/asset/df084a93-488b-4397-b819-281a62593822",
-  accessories:
-    "https://www.figma.com/api/mcp/asset/fc26943c-0736-4db7-9fe9-9c1882bf0683",
-  wellbeing:
-    "https://www.figma.com/api/mcp/asset/7516b6fc-5252-4760-b9cc-2e6d30bd4db7",
+  home: "./assets/",
+  food: "./assets/",
+  snacks: "./assets/",
+  hygiene: "./assets/",
+  accessories: "./assets/",
+  wellbeing: "./assets/",
 };
-const img = (group, file) => `${ASSETS[group]}/${file}`;
+
+// Relación entre las referencias antiguas de Figma y los archivos locales.
+// Se conserva el resto del catálogo y de las funcionalidades sin cambios.
+const LOCAL_IMAGES = {
+  "home/80d20.png": "ricocan-cordero-y-cereales-adultos.png",
+  "home/48173.png": "cambo-dog-food-adultos-sb-pollo.png",
+  "home/6c97d.png": "adultos-todas-las-razas-sabor-carne.png",
+  "home/40c95.png": "biscuits-sabor-cordero.png",
+  "home/90873.png": "ahumaditos-filetitos-sabor-tocino.png",
+  "home/66769.png": "patas-de-pollo-deshidratadas.png",
+  "food/6682a.png": "pro-plan-optiderma-sensitive-skin.png",
+  "food/94f43.png": "allkjoy-adulto-cordero.png",
+  "food/9416a.png": "s6-sound-adultodog-canned.png",
+  "food/8ab76.png": "original-sabor-carne-adulto-todas-las-razas.png",
+  "food/f202c.png": "senior-lamb-and-rice-12-kg.png",
+  "food/a61de.png": "total-grain-free-turkey-chicken.png",
+  "food/8c680.png": "adultos-razas-medianas-y-grandes-con-cordero.png",
+  "food/c0abd.png": "adultos-todas-las-razas-sabor-carne.png",
+  "snacks/82725.png": "galletas-multisabores-para-perros-adultos.png",
+  "snacks/2674e.png": "galletas-horneadas-sabor-cordero.png",
+  "snacks/f782b.png": "oreja-de-res-deshidratada.png",
+  "snacks/cc151.png": "premios-para-perros-soft-savories-beef.png",
+  "snacks/4b1cd.png": "premios-para-perros-grain-free-soft-baked-chicken.png",
+  "snacks/aae6d.png": "nubz-premio-masticable.png",
+  "snacks/40c95.png": "biscuits-sabor-cordero.png",
+  "hygiene/8c2bd.png": "dragpharma-sir-dog-acondicionador.png",
+  "hygiene/bfb04.png": "clorhexidina-shampoo-medicado.png",
+  "hygiene/ad723.png": "pet-care-cepillo.png",
+  "hygiene/31772.png": "dragpharma-canish-extracto-de-hierbas.png",
+  "hygiene/de400.png": "claws-and-paws-toallitas-humedas.png",
+  "hygiene/585ae.png": "pomada-de-calendula.png",
+  "hygiene/c8387.png": "perfume-repelente-natural.png",
+  "hygiene/35c25.png": "furminator-curry-grooming.png",
+  "hygiene/1e5c9.png": "maxi-pack-toallitas-humedas.png",
+  "hygiene/c6e72.png": "bolsa-nice-care-basic.png",
+  "accessories/48c7d.png": "gotto-correa-reflectante.png",
+  "accessories/8bb3d.png": "gotoo-correa-malla-gris.png",
+  "accessories/a0f64.png": "gotoo-correa-retractill-negra.png",
+  "accessories/06a2c.png": "gotoo-arnes-azul-deluxe.png",
+  "accessories/49dfb.png": "training-chain-collar.png",
+  "accessories/88c37.png": "gotoo-correa-reflectante.png",
+  "accessories/0a27e.png": "accecan-bozal-de-metal.png",
+  "accessories/d96f5.png": "comedero-outech-antiderrame.png",
+  "accessories/be05c.png": "plato-interactivo-lecca-mat-azul.png",
+  "accessories/35b0f.png": "tazon-antidescanso-gris-leeby.png",
+  "wellbeing/4122f.png": "Nina-Ottosson-Dog-Spin.png",
+  "wellbeing/2b351.png": "Sturdy-Crocodile.png",
+  "wellbeing/2ed9d.png": "Leeby-Dog-Deluxe-Deer-Blanket.png",
+  "wellbeing/de143.png": "Leeby-Cuna-con-cojin.png",
+  "wellbeing/ae427.png": "Playology-Dri-Cuerda.png",
+  "wellbeing/cc52d.png": "Cama-Wuff-And-Paws-Confort.png",
+  "wellbeing/c29fe.png": "Chuckit-Fetch-Medley.png",
+  "wellbeing/75fb2.png": "Parque-plegable.png",
+  "wellbeing/fcf6e.png": "Peluche-pollo-relleno.png",
+  "wellbeing/b27f4.png": "Casa-Perro-Pvc.png",
+};
+
+const img = (group, file) => `./assets/${LOCAL_IMAGES[`${group}/${file}`] || file}`;
+
 const categories = [
   {
     id: "alimentos",
@@ -136,7 +191,7 @@ const products = [
     name: "High Balance adultos todas las razas 15 kg",
     price: 242,
     oldPrice: 299,
-    image: img("food", "6682a.png"),
+    image: "./assets/adultos-razas-medianas-y-grandes-sabor-carne.png",
   },
   {
     id: "f10",
@@ -607,8 +662,8 @@ function categoryTiles() {
   return `<div class="category-tiles">${categories.map((c) => `<a class="category-tile" href="?view=categoria&categoria=${c.id}" data-open-cat="${c.id}"><div><h3>${c.name}</h3><p>${c.desc}</p></div><span class="tile-arrow">›</span></a>`).join("")}</div>`;
 }
 function home() {
-  const hero = img("home", "8ac5b.png");
-  const lifestyle = img("home", "cdce4.png");
+  const hero = "./assets/Banner-principal.png";
+  const lifestyle = "./assets/Gato-perro-crear-perfil.png";
   return `<section class="hero"><img class="hero-image" src="${hero}" alt="Banner Petludos"><button class="hero-arrow left" aria-label="Banner anterior">‹</button><button class="hero-arrow right" aria-label="Siguiente banner">›</button><div class="dots"><span class="active"></span><span></span><span></span><span></span></div></section><section class="benefits"><div class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 10h24v17H4zM2 6h28v5H2zM13 11v16M19 11v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 6c-7-8-12 2-3 4m3-4c7-8 12 2 3 4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><div><b>Delivery gratis</b><small>Por compras mayores a S/100</small></div></div><div class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 36 32"><path d="M2 6h20v17H2zM22 12h7l5 6v5H22z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="9" cy="25" r="3" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="28" cy="25" r="3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></span><div><b>Delivery express</b><small>En 2 horas</small></div></div></section><section class="section profile-promo wrap"><div class="profile-promo-image"><img src="${lifestyle}" alt="Perro y gato juntos" loading="lazy"></div><div class="profile-promo-copy"><h2>Crea el perfil de tu mascota</h2><p>Cuéntanos sobre tu mascota y crea su perfil con información como su edad, tamaño, características y necesidades.</p><p>Así podremos mostrarte <strong>productos recomendados especialmente para ella</strong>, ayudándote a encontrar lo que realmente necesita de forma más rápida y sencilla.</p><button class="btn btn-green" data-modal="profile">Crear perfil de mi mascota　›</button></div></section>${productSection(
     "Productos recomendados para Apolo",
     products.filter((p) => ["f1", "f2", "f3", "f4"].includes(p.id)),
